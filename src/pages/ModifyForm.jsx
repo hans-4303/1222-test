@@ -25,12 +25,19 @@ const ModifyForm = () => {
     navigate(`/board/${post.boardId}`)
   }
 
+  const undoModify = () => {
+    navigate(`/board/${post.boardId}`)
+  }
+
   return (
     <div>
       <div style={{display: 'flex', justifyContent: 'space-around'}}>
         <p>{post.boardId}</p>
         <input type='text' name='title' value={post.title} onChange={(event) => {onChangeValue(event)}}></input>
-        <button onClick={() => {doModifyPost(post)}}>수정완료</button>
+        <div>
+          <button onClick={() => {doModifyPost(post)}}>수정완료</button>
+          <button onClick={() => {undoModify()}}>수정하지 않고 나가기</button>
+        </div>
       </div>
       <p>{post.userEmail}</p>
       <input type="text" name='content' value={post.content} onChange={(event) => {onChangeValue(event)}}></input>

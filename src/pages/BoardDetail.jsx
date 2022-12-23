@@ -20,6 +20,10 @@ const BoardDetail = () => {
     navigate('/');
   }
 
+  const toHome = () => {
+    navigate('/');
+  }
+
   return (
     <div>
       {/* 확인 OK */}
@@ -32,6 +36,7 @@ const BoardDetail = () => {
             <div>
               <button onClick={() => {toModifyPost({eachPost})}}>수정</button>
               <button onClick={() => {onDeletePost(eachPost.boardId)}}>삭제</button>
+              <button onClick={() => {toHome()}}>목록(Home)으로</button>
             </div>
           </div>
           <p>{eachPost.userEmail}</p>

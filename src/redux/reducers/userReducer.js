@@ -1,10 +1,9 @@
 /* 각 리듀서를 만들 때는 createSlice 활용 */
 import { createSlice, current } from "@reduxjs/toolkit";
 
-/* 초기 값 작성
-객체로 값을 주는 게 유효하다. */
+/* 초기 값 작성 객체로 값을 주는 게 유효하다. */
 let initialState = {
-  boards : [
+  boards: [
   {
     boardId: 1,
     userEmail: 'abbbb@bbb.com',
@@ -30,23 +29,19 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     deleteBoard(state, action) {
-      /* action.payload에서 바로 id를 내보내면 되니까? */
+      /* current를 통해서는 proxy로 찍히는 값들을 확인해볼 수 있다.
 
-      /* current를 통해서는 proxy로 찍히는 값들을 확인해볼 수 있다. */
       console.log(current(state.boards))
-      console.log(action.payload);
-
+      console.log(action.payload); */
       /* state 중 boards에 접근하기 */
       const newBoardList = state.boards.filter((board) => board.boardId != action.payload)
       state.boards = newBoardList;
     },
     modifyBoard(state, action) {
-      console.log(current(state.boards));
+      /* console.log(current(state.boards));
       console.log(action.payload);
-      
-      /* console.log(action.payload.post.boardId); 같이 되는 현상만 해결하면 끝 */
-      console.log(action.payload.boardId);
-
+      console.log(action.payload.post.boardId); 같이 되는 현상만 해결하면 끝
+      console.log(action.payload.boardId); */
       const editBoardList = state.boards.map((board) => (board.boardId == action.payload.boardId ? action.payload : board))
       console.log(editBoardList);
 
