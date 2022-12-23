@@ -25,7 +25,10 @@ let initialState = {
 /* createSlice를 통해 userSlice 객체를 만들고,
 이름과 초기 값 정의, 리듀서 작성 */
 const userSlice = createSlice({
-  name: 'user',
+  /* 여기의 name은 아무렇게나 정의해도 동작하는 것을 확인했다.
+  즉, useSelector에서 가리키는 state.'다루고자 하는 state 영역'은
+  store의 configureStore 내부에서 정의된 state라는 것을 알 수 있다. */
+  name: '아무렇게나 정의해도 동작할까?',
   initialState,
   reducers: {
     deleteBoard(state, action) {
